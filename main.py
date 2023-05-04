@@ -11,7 +11,7 @@ df = pd.read_csv('SOFI_JANtoMAY.csv')
 df['Category'] = 'other'
 
 df['Category'] = np.where(df['Description'].str.contains('bluebikes'), 'Transport', df['Category'] )
-df['Category'] = np.where(df['Description'].str.contains('LTI INFORMATION') | df['Type'].str.contains('Direct Deposit'), 'Income', df['Category'] )
+df['Category'] = np.where(df['Description'].str.contains('EMPLOYER') | df['Type'].str.contains('Direct Deposit'), 'Income', df['Category'] )
 df['Category'] = np.where(df['Amount'] == -1000, 'Rent&Bills', df['Category'] )
 df['Category'] = np.where(df['Description'].str.contains('Xfinity'), 'Rent&Bills', df['Category'] )
 df['Category'] = np.where(df['Description'].str.contains('Star Market|Trader Joe\'s|Whole Foods'), 'Groceries', df['Category'] )
